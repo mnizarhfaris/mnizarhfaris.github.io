@@ -130,8 +130,45 @@
       padding: 2rem 1rem;
     }
 
+    /* Floating Glow Behind Card */
+    .card-glow {
+      position: absolute;
+      width: 34rem;
+      height: 34rem;
+    
+      background: radial-gradient(
+        circle,
+        rgba(143, 211, 211, 0.25) 0%,
+        rgba(95, 168, 211, 0.12) 35%,
+        rgba(255, 255, 255, 0) 70%
+      );
+    
+      filter: blur(40px);
+    
+      z-index: 0;
+    
+      animation: glowFloat 8s ease-in-out infinite;
+    }
+
+    /* Glow Floating Animation */
+    @keyframes glowFloat {
+      0% {
+        transform: translateY(0px) scale(1);
+      }
+    
+      50% {
+        transform: translateY(-10px) scale(1.03);
+      }
+    
+      100% {
+        transform: translateY(0px) scale(1);
+      }
+    }
+      
     /* Content Card (Glassmorphism) */
     .content-card {
+      position: relative;
+      z-index: 1;
       width: 100%;
       max-width: 28rem;
       background: rgba(255, 255, 255, 0.15);
@@ -390,6 +427,7 @@
 
     <!-- Main Content -->
     <main class="page-content">
+      <div class="card-glow"></div>
       <div class="content-card">
         <!-- Profile Image -->
         <div class="profile-image-container">
